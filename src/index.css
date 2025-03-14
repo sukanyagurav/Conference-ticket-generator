@@ -1,26 +1,39 @@
+@import 'tailwindcss';
 
-@import "tailwindcss";
-
-@theme{
-    --font-display:"Inconsolata", monospace;
-    --color-neutral: hsl(0, 0%, 100%);
-    --color-neutral-2: hsl(252, 6%, 83%);
-    --color-neutral-3: hsl(245, 15%, 58%);
-    --color-neutral-4: hsl(245, 19%, 35%);
-    --color-neutral-5: hsl(248, 70%, 10%);
-    --color-orange-500: hsl(7, 88%, 67%);
-    --color-neutral-700: hsl(7, 71%, 60%);
-    --color-gradient: hsl(7, 86%, 67%) to hsl(0, 0%, 100%);
+@theme {
+  --font-display: 'Inconsolata', monospace;
+  --color-neutral: hsl(0, 0%, 100%);
+  --color-neutral-2: hsl(252, 6%, 83%);
+  --color-neutral-3: hsl(245, 15%, 58%);
+  --color-neutral-4: hsl(245, 19%, 35%);
+  --color-neutral-5: hsl(248, 70%, 10%);
+  --color-orange-500: hsl(7, 88%, 67%);
+  --color-orange-700: hsl(7, 71%, 60%);
+  --color-gradient: hsl(7, 86%, 67%) to hsl(0, 0%, 100%);
 }
 
-@layer base{
-    body{
-        /* background: url('/images/background-desktop.png'); */
-        @apply bg-[url('/images/background-mobile.png')] md:bg-[url('/images/background-tablet.png')] lg:bg-[url('/images/background-desktop.png')];
-    }
-    body::before{
-        content: '';
-        @apply absolute top-0 left-0 w-full h-full bg-[url('/images/pattern-lines.svg')] -z-1;
-    }
- 
+@layer base {
+  body {
+    /* background: url('/images/background-desktop.png'); */
+    @apply bg-[url('/images/background-mobile.png')] md:bg-[url('/images/background-tablet.png')] lg:bg-[url('/images/background-desktop.png')] relative bg-center bg-no-repeat bg-cover min-h-screen;
+  }
+  body::before {
+    @apply content-[''] absolute top-0 left-0 w-full  bg-[url('/images/pattern-lines.svg')] z-3;
+  }
+  body::after {
+    @apply content-[''] absolute top-0  left-0 w-full h-full  bg-[url('/images/pattern-circle.svg')] z-4 bg-no-repeat;
+  }
+  .left-bg {
+    @apply absolute bottom-0  left-0 w-full h-full  bg-[url('/images/pattern-squiggly-line-bottom-mobile-tablet.svg')] lg:bg-[url('/images/pattern-squiggly-line-bottom-desktop.svg')] bg-no-repeat bg-left-bottom -z-1;
+  }
+  .right-bg {
+    @apply absolute top-0  right-0 w-full h-full  bg-[url('/images/pattern-squiggly-line-top.svg')]  bg-no-repeat bg-right-top -z-1;
+  }
+  main {
+    @apply content-[''] absolute top-0  right-0 w-full h-full  bg-[url('/images/pattern-circle.svg')]  bg-no-repeat bg-right-bottom -z-1;
+  }
+}
+.error img {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(49%) saturate(788%)
+    hue-rotate(317deg) brightness(94%) contrast(88%);
 }
