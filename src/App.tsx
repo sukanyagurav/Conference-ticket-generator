@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Form from "./Form";
 import RootLayout from "./RootLayout";
-import SuccessPage from "./Success.tsx";
+import SuccessPage from "./Success";
 
 let router = createBrowserRouter([
   {
