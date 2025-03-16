@@ -105,7 +105,7 @@ const Form = () => {
               />
             ) : (
               <img
-                src="/public/images/icon-upload.svg"
+                src="../public/images/icon-upload.svg"
                 alt="Upload placeholder"
               />
             )}
