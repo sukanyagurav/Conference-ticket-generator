@@ -14,6 +14,7 @@ const Form = () => {
     fullName: '',
     email: '',
     username: '@',
+    ticketNumber: 0,
   });
   const [error, setError] = useState({
     avatar: '',
@@ -41,20 +42,34 @@ const Form = () => {
 
   function handleSubmit(event: any) {
     event.preventDefault();
-    const newErrors={
+    const newErrors = {
       ...error,
       ...checkName(ticket.fullName),
       ...checkEmail(ticket.email),
       ...checkUsername(ticket.username),
       ...checkAvatar(ticket.avatar),
-    }
+    };
     setError(newErrors);
-    if (!newErrors.avatar && !newErrors.fullName && !newErrors.email && !newErrors.username) {
-        navigate('/success',{state:{ticket:ticket}}); // Redirect to success page
-      }
+    if (
+      !newErrors.avatar &&
+      !newErrors.fullName &&
+      !newErrors.email &&
+      !newErrors.username
+    ) {
+      navigate('/success', {
+        state: {
+          ticket: {
+            ...ticket,
+            ticketNumber: Math.floor(
+              Date.now() % Math.pow(10, Math.floor(Math.random() * 6) + 1)
+            ),
+          },
+        },
+      });
+    }
   }
   return (
-    <section className='p-4'>
+    <section className="p-4">
       <h1 className="text-3xl md:text-5xl text-center max-w-[800px] mx-auto mb-4 font-[800]">
         Your Journey to Coding Conf 2025 Starts Here!
       </h1>
@@ -66,7 +81,7 @@ const Form = () => {
         onSubmit={handleSubmit}
         noValidate
       >
-        <div className="relative w-full mt-8 mb-44 md:mb-38">
+        <div className="relative w-full mt-8 mb-44 md:mb-38 file-wrapper">
           <Input
             type="file"
             accept="image/png, image/jpeg"
@@ -78,7 +93,7 @@ const Form = () => {
             message={error.avatar}
           />
           <div
-            className={`border-dashed border-2 py-20 px-8 md:p-16 absolute top-8  w-full h-full flex justify-center flex-col items-center  z-2 rounded-xl text-center ${
+            className={`border-dashed border-2  file  py-20 px-8 md:p-16 absolute top-8  w-full h-full flex justify-center flex-col items-center  z-2 rounded-xl text-center ${
               error.avatar ? 'border-orange-700' : 'border-neutral-3'
             } `}
           >
@@ -128,7 +143,7 @@ const Form = () => {
 
         <button
           type="submit"
-          className="p-3 mt-10 text-black font-bold text-xl cursor-pointer bg-orange-500 block w-full rounded-lg hover:bg-orange-700"
+          className="p-3 mt-10 text-black transition duration-400 btn  font-bold text-xl cursor-pointer bg-orange-500 block w-full rounded-lg hover:bg-orange-700"
         >
           Generate My Ticket
         </button>

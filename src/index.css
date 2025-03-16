@@ -9,7 +9,12 @@
   --color-neutral-5: hsl(248, 70%, 10%);
   --color-orange-500: hsl(7, 88%, 67%);
   --color-orange-700: hsl(7, 71%, 60%);
-  --color-gradient: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+  --color-gradient-1: hsl(7, 86%, 67%);
+  --color-gradient-2: hsl(0, 0%, 100%);
+  /* --breakpoint-sm:28.125rem; */
+  --breakpoint-md: 37rem;
+  --breakpoint-lg: 62rem;
+  --breakpoint-xl: 90rem;
 }
 
 @layer base {
@@ -32,11 +37,17 @@
   main {
     @apply content-[''] absolute top-0  right-0 w-full h-full  bg-[url('/images/pattern-circle.svg')]  bg-no-repeat bg-right-bottom -z-1;
   }
- .ticket{
-  @apply bg-[url('/images/pattern-ticket.svg')] bg-no-repeat bg-contain md:bg-cover w-full min-h-[300px];
- }
+  .btn{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+      rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+      rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  }
 }
 .error img {
   filter: brightness(0) saturate(100%) invert(46%) sepia(49%) saturate(788%)
     hue-rotate(317deg) brightness(94%) contrast(88%);
+}
+input:focus,.file-wrapper:focus-within .file{
+  outline-offset: 4px;
+  @apply outline outline-neutral-3 ;
 }
