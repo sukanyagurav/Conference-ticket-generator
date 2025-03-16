@@ -73,7 +73,7 @@ const Form = () => {
       <h1 className="text-3xl md:text-5xl text-center max-w-[800px] mx-auto mb-4 font-[800]">
         Your Journey to Coding Conf 2025 Starts Here!
       </h1>
-      <p className="text-neutral-3 text-center text-lg">
+      <p className="text-neutral-2 text-center text-lg">
         Secure your spot at next year's biggest coding conference.
       </p>
       <form

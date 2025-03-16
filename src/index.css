@@ -19,7 +19,6 @@
 
 @layer base {
   body {
-    /* background: url('/images/background-desktop.png'); */
     @apply bg-[url('/images/background-mobile.png')] md:bg-[url('/images/background-tablet.png')] lg:bg-[url('/images/background-desktop.png')] relative bg-center bg-no-repeat bg-cover min-h-screen;
   }
   body::before {
