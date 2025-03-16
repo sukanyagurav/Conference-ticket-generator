@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Form from "./Form";
 import RootLayout from "./RootLayout";
-import Success from "./Success";
+import SuccessPage from "./Success";
 
 let router = createBrowserRouter([
   {
@@ -13,7 +13,7 @@ let router = createBrowserRouter([
         element:<Form/>
       },{
         path:'/success',
-        element:<Success/>
+        element:<SuccessPage/>
       }
     ]
   }

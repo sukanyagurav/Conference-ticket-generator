@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-const Success = () => {
+const SuccessPage = () => {
   const location = useLocation();
   const ticket = location.state.ticket;
   return (
@@ -81,4 +81,4 @@ const Success = () => {
   );
 };
 
-export default Success;
+export default SuccessPage;
